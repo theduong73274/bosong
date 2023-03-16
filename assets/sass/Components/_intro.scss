@@ -1,0 +1,88 @@
+.intro {
+    margin-bottom: 120px;
+
+    @include responsive_bothTM {
+        margin-bottom: 5rem;
+    }
+
+    &-wrapper {
+        @include flexBox(hor);
+        justify-content: space-evenly;
+
+        @include responsive_bothTM {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &-info {
+        min-width: 24%;
+        width: 24%;
+
+        @include responsive_bothTM {
+            min-width: 100%;
+        }
+
+        &__sub {
+            font-size: 2rem;
+            font-family: $font-lora;
+            text-align: center;
+            display: block;
+
+            @include responsive_mobile {
+                font-size: 1.5rem;
+            }
+        }
+
+        &__heading {
+            font-size: 7.2rem;
+            font-family: $font-dcs;
+            color: $color-main;
+        }
+
+        &__desc {
+            margin-top: 24px;
+            color: $color-text;
+
+            & > p + p {
+                margin-top: 24px;
+            }
+        }
+
+        &__btn {
+            margin-top: 58px;
+            display: inline-block;
+
+            @include responsive_fitLow {
+                margin: 0 auto;
+            }
+
+            @include responsive_bothTM {
+                margin-top: 2.75rem;
+            }
+        }
+    }
+
+    &-parable {
+        min-width: 66%;
+        width: 66%;
+        @include flexBox(both);
+
+        @include responsive_bothTM {
+            min-width: 100%;
+        }
+
+        &__img {
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            width: 45%;
+
+            &:first-child {
+                @include imgPT(54%);
+            }
+
+            & + .intro-parable__img {
+                margin-left: 40px;
+                @include imgPT(65%);
+            }
+        }
+    }
+}

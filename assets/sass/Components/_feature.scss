@@ -1,0 +1,161 @@
+.feature {
+    position: relative;
+    margin-bottom: 96px;
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: -280px;
+        z-index: -1;
+
+        width: 19%;
+        padding-top: 24%;
+        background-repeat: no-repeat;
+        right: 0;
+        background-position: right;
+        background-image: url("/assets/image/feature-right.webp");
+
+        @include responsive_bigLow {
+            width: 24%;
+            padding-top: 30%;
+        }
+
+        @include responsive_fitLow {
+            top: -220px;
+            padding-top: 35%;
+        }
+
+        @include responsive_bothTM {
+            background-size: contain;
+        }
+
+        @include responsive_mobile {
+            top: -18%;
+        }
+    }
+
+    &-wrapper {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: "";
+            top: 0px;
+            z-index: -1;
+
+            transform: translateY(-50%);
+            width: 15%;
+            padding-top: 14%;
+            background-repeat: no-repeat;
+
+            right: 100%;
+            background-position: center;
+            background-image: url("/assets/image/feature-left.webp");
+
+            @include responsive_bigLow {
+                right: 90%;
+            }
+
+            @include responsive_fitLow {
+                right: 85%;
+            }
+
+            @include responsive_bothTM {
+                width: 22%;
+                padding-top: 30%;
+                right: 76%;
+                background-size: contain;
+                transform: translateY(-75%);
+            }
+
+            @include responsive_fitLow {
+                padding-top: 16%;
+                width: 16%;
+            }
+        }
+    }
+
+    &-list {
+        margin-top: 56px;
+        @include gridBox(4, 64px, 56px);
+
+        @include responsive_HD {
+            gap: 48px;
+        }
+
+        @include responsive_bothTM {
+            gap: 44px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @include responsive_mobile {
+            margin-top: 48px;
+        }
+    }
+
+    &-item {
+        @include flexBox(hor);
+        flex-direction: column;
+
+        &__icon {
+            position: relative;
+            padding: 36px;
+            margin-bottom: 32px;
+
+            min-width: 127px;
+            height: 127px;
+            @include flexBox(both);
+
+            border-radius: 50%;
+            transition: all 0.3s;
+            background-color: $color-icon;
+
+            @include responsive_mobile {
+                margin-bottom: 20px;
+                height: 110px;
+                min-width: 110px;
+                width: 110px;
+            }
+
+            &::before {
+                position: absolute;
+                inset: 0;
+                content: "";
+                border: 1.4px solid transparent;
+                transition: all 0.2s;
+                border-radius: 50%;
+            }
+
+            &:hover {
+                background-color: $color-main;
+
+                &::before {
+                    border-color: $color-main;
+                    inset: -12px;
+                }
+
+                svg path {
+                    fill: #000;
+                    stroke: #000;
+                }
+            }
+        }
+
+        &__title {
+            font-size: 2.2rem;
+            font-family: $font-lora;
+            margin-bottom: 20px;
+
+            @include responsive_mobile {
+                margin-bottom: 12px;
+                font-size: 1.8rem;
+            }
+        }
+
+        &__desc {
+            font-weight: 500;
+            text-align: center;
+            color: $color-text;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+// ================= SCSS SetUp =================
+@import "./SetUpBase/variables";
+@import "./SetUpBase/reset";
+@import "./SetUpBase/mixin";
+@import "./SetUpBase/base";
+
+// ================= SCSS General =================
+@import "./Layout/header";
+@import "./Layout/footer";
+
+// ================= SCSS Content =================
+@import "./Components/banner";
+@import "./Components/intro";
+@import "./Components/dish";
+@import "./Components/feature";
+@import "./Components/feedback";
+@import "./Components/contact";
+@import "./Components/news";
+@import "./Components/pathway";
+@import "./Components/play";
+@import "./Components/special";
+@import "./Components/gallery";

@@ -1,0 +1,137 @@
+.banner {
+    position: relative;
+    padding: 180px 0;
+    margin-bottom: 132px;
+
+    @include responsive_fitLow {
+        margin-bottom: 10rem;
+    }
+
+    @include responsive_table {
+        padding: 8rem 0;
+        margin-bottom: 60px;
+    }
+
+    @include responsive_mobile {
+        padding-bottom: 5rem;
+        margin-bottom: 1rem;
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: "";
+        z-index: -1;
+        background-repeat: no-repeat;
+    }
+
+    &::after {
+        background-image: url("/assets/image/food-left.webp");
+        top: 7%;
+        left: 4%;
+        padding-top: 38%;
+        width: 50%;
+
+        @include responsive_bigLow {
+            width: 51%;
+            padding-top: 52%;
+            left: 0;
+            background-position: right;
+        }
+
+        @include responsive_fitLow {
+            padding-top: 64%;
+            width: 53%;
+        }
+
+        @include responsive_bothTM {
+            padding-top: 76%;
+        }
+
+        @include responsive_mobile {
+            padding-top: 22%;
+            width: 40%;
+            background-size: cover;
+        }
+    }
+
+    &::before {
+        background-image: url("/assets/image/food-right.webp");
+        background-position: right;
+        background-size: contain;
+        top: -127px;
+        right: 0%;
+        padding-top: 57%;
+        width: 40%;
+
+        @include responsive_fitSmall {
+            padding-top: 58%;
+            width: 34%;
+        }
+
+        @include responsive_bothTM {
+            top: -75px;
+            padding-top: 50%;
+            width: 25%;
+            background-size: cover;
+        }
+
+        @include responsive_mobile {
+            top: -52px;
+            padding-top: 74%;
+            width: 38%;
+        }
+    }
+
+    &-wrapper {
+        max-width: 52%;
+        margin: 0 auto;
+
+        @include responsive_fitLow {
+            max-width: 64%;
+        }
+
+        @include responsive_bothTM {
+            max-width: 90%;
+        }
+    }
+
+    &-title {
+        line-height: 1.15;
+        font-family: $font-dcs;
+        font-weight: 600;
+
+        font-size: 8rem;
+        text-align: center;
+
+        @include responsive_bothTM {
+            font-size: 5rem;
+        }
+    }
+
+    &-sub {
+        margin-top: 48px;
+        @include flexBox(both);
+        flex-direction: column;
+        @include responsive_bothTM {
+            margin-top: 1.25rem;
+        }
+
+        &__content {
+            @include flexBox(both);
+        }
+
+        &__desc {
+            font-size: 2.2rem;
+            font-family: $font-lora;
+            text-align: center;
+            margin: 0 32px;
+            color: $color-main;
+        }
+
+        &__btn {
+            display: inline-block;
+            margin-top: 58px;
+        }
+    }
+}

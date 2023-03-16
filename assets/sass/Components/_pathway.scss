@@ -1,0 +1,105 @@
+.pathway {
+    position: relative;
+    min-height: 450px;
+    margin-bottom: 120px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/assets/image/banner.png);
+
+    @include responsive_fitLow {
+        min-height: 250px;
+        margin-bottom: 96px;
+    }
+
+    @include responsive_mobile {
+        min-height: 200px;
+        margin-bottom: 80px;
+    }
+
+    &-overlay {
+        position: absolute;
+
+        inset: 0;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.7));
+    }
+
+    &-title {
+        color: $color-main;
+        font-family: $font-dcs;
+        font-size: 8rem;
+        font-weight: bold;
+
+        @include responsive_fitLow {
+            margin-bottom: 8px;
+            font-size: 4.8rem;
+        }
+    }
+
+    &-wrapper {
+        position: absolute;
+        top: 50%;
+        z-index: 10;
+        transform: translateY(-50%);
+    }
+
+    &-nav {
+        display: flex;
+        margin-top: 4px;
+
+        @include responsive_mobile {
+            display: none;
+        }
+
+        &__list {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        &__item {
+            display: inline-flex;
+            align-items: center;
+            font-family: $font-proMain;
+            font-weight: 500;
+
+            & + .pathway-nav__item {
+                margin-left: 16px;
+            }
+        }
+
+        &__link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 2rem;
+
+            color: #fff;
+
+            @include responsive_fitLow {
+                font-size: 1.8rem;
+            }
+
+            @include responsive_mobile {
+                font-size: 1.6rem;
+            }
+
+            &:hover {
+                color: $color-main;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+        }
+
+        &__desc {
+            @include flexBox(hor);
+
+            & > span {
+                margin-left: 12px;
+                font-size: 2rem;
+                color: #fff;
+
+                @include lineDot(1);
+            }
+        }
+    }
+}

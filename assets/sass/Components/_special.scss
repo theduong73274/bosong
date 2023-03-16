@@ -1,0 +1,174 @@
+.special {
+    position: relative;
+    margin-bottom: 120px;
+
+    @include responsive_bothTM {
+        margin-bottom: 80px;
+    }
+
+    &::after,
+    &::before {
+        position: absolute;
+        content: "";
+        bottom: 0;
+        background-repeat: no-repeat;
+    }
+
+    &::before {
+        left: 0;
+        width: 12%;
+        padding-top: 20%;
+
+        transform: translateY(65%);
+        background-size: cover;
+        background-position: center;
+        background-image: url(/assets/image/about-6.webp);
+
+        @include responsive_bothTM {
+            z-index: -1;
+            width: 18%;
+            padding-top: 30%;
+            transform: translateY(75%);
+        }
+    }
+
+    &::after {
+        right: 0;
+        width: 11%;
+        padding-top: 18%;
+        background-size: contain;
+        transform: translateY(50%);
+        background-position: right;
+        background-image: url(/assets/image/about-8.webp);
+
+        @include responsive_bothTM {
+            padding-top: 25%;
+            width: 14%;
+            z-index: -1;
+            @apply translate-y-3/4;
+        }
+    }
+
+    &-wrapper {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: "";
+            left: 98%;
+            top: 0%;
+            width: 14%;
+            padding-top: 10%;
+
+            transform: translateY(-20%);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url("/assets/image/dishes-right.png");
+
+            @include responsive_bothTM {
+                transform: translateY(-100%);
+            }
+
+            @include responsive_bigLow {
+                left: 90%;
+            }
+
+            @include responsive_fitLow {
+                left: 85%;
+            }
+
+            @include responsive_fitSmall {
+                padding-top: 14%;
+            }
+
+            @include responsive_fit {
+                left: 87%;
+            }
+
+            @include responsive_bothTM {
+                width: 20%;
+                padding-top: 20%;
+                left: 78%;
+                background-size: contain;
+            }
+        }
+    }
+
+    &-info {
+        @include flexBox(hor);
+        margin-top: 48px;
+
+        @include responsive_bothTM {
+            margin-top: 44px;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        &__list {
+            @include gridBox(1, 56px, 56px);
+
+            @include responsive_table {
+                gap: 40px;
+            }
+
+            @include responsive_mobile {
+                gap: 24px;
+            }
+        }
+
+        &__item {
+            @include responsive_mobile {
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+
+        &__title {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            color: $color-main;
+            font-family: $font-lora;
+
+            @include responsive_fitLow {
+                margin-bottom: 12px;
+                font-size: 2.4rem;
+            }
+
+            @include responsive_bothTM {
+                font-size: 2rem;
+            }
+        }
+
+        &__desc {
+            line-height: 1.6;
+            font-size: 2rem;
+            @include lineDot(3);
+            color: #a2a09b;
+
+            @include responsive_fitLow {
+                font-size: 1.8rem;
+            }
+        }
+
+        &__img {
+            margin: 0 50px;
+            min-width: 496px;
+
+            @include responsive_fitLow {
+                min-width: 39%;
+            }
+
+            @include responsive_bothTM {
+                min-width: 55%;
+            }
+
+            @include responsive_mobile {
+                min-width: 90%;
+            }
+
+            & > img {
+                width: 100%;
+            }
+        }
+    }
+}
