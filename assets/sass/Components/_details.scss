@@ -1,0 +1,355 @@
+.details {
+    margin-bottom: 120px;
+
+    position: relative;
+
+    &::after,
+    &::before {
+        position: absolute;
+        content: "";
+        bottom: 0;
+        background-repeat: no-repeat;
+    }
+
+    &::before {
+        left: 0;
+        width: 12%;
+        padding-top: 20%;
+
+        transform: translateY(65%);
+        background-size: cover;
+        background-position: center;
+        background-image: url("./assets/image/about-6.webp");
+
+        @include responsive_bothTM {
+            z-index: -1;
+            width: 18%;
+            padding-top: 30%;
+            transform: translateY(75%);
+        }
+    }
+
+    &::after {
+        right: 0;
+        background-position: right;
+        width: 11%;
+        padding-top: 18%;
+        background-size: contain;
+        transform: translateY(50%);
+        background-image: url("./assets/image/about-8.webp");
+
+        @include responsive_bothTM {
+            padding-top: 25%;
+            width: 14%;
+            z-index: -1;
+            transform: translateY(75%);
+        }
+    }
+
+    &-wrapper {
+        position: relative;
+        @include gridBox(2, 32px, 32px);
+
+        @include responsive_mobile {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            left: 90%;
+            top: 0%;
+            width: 16%;
+            padding-top: 27%;
+
+            background-position: top;
+            background-size: cover;
+            transform: translateY(-40%);
+            background-image: url("/assets/image/details-2.png");
+
+            @include responsive_bothTM {
+                transform: translateY(-100%);
+            }
+        }
+    }
+
+    &-slide {
+        overflow: hidden;
+        width: 100%;
+
+        &__item {
+            @include imgPT(100%);
+        }
+
+        &__main {
+            padding: 16px;
+            background-color: #fff;
+
+            @include responsive_mobile {
+                padding: 8px;
+            }
+        }
+
+        &__sub {
+            margin-top: 16px;
+
+            @include responsive_mobile {
+                margin-top: 14px;
+            }
+        }
+    }
+
+    &-info {
+        margin-top: 28px;
+        font-family: $font-lora;
+
+        &__title {
+            font-size: 3.6rem;
+            font-weight: 600;
+
+            @include responsive_fitLow {
+                max-width: 80%;
+            }
+
+            @include responsive_bothTM {
+                font-size: 3.2rem;
+            }
+        }
+
+        &__price {
+            @include flexBox(hor);
+            margin-top: 24px;
+
+            @include responsive_fitLow {
+                margin-top: 20px;
+            }
+        }
+
+        &__money {
+            margin-right: 20px;
+            display: flex;
+            font-weight: 500;
+            align-items: flex-end;
+
+            @include responsive_mobile {
+                align-items: center;
+            }
+
+            .price {
+                &-old {
+                    color: #bcb9b1;
+                    font-size: 1.9rem;
+                    text-decoration: line-through;
+                    margin-right: 20px;
+                }
+
+                &-new {
+                    color: $color-main;
+                    font-size: 3.4rem;
+                    line-height: 1.2;
+                }
+            }
+        }
+
+        &__percent {
+            color: #222224;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            padding: 4px 20px;
+            background-color: $color-main;
+        }
+
+        &__note {
+            margin: 32px 0;
+            font-family: $font-proMain;
+        }
+
+        &__cover {
+            @include flexBox(hor);
+            margin-bottom: 12px;
+        }
+
+        &__name {
+            color: $color-text;
+            margin-right: 4px;
+        }
+
+        &__social {
+            margin-left: 6px;
+
+            & > i {
+                font-size: 2.4rem;
+
+                & + i {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        &__quantity {
+            @include flexBox(hor);
+            margin-top: 32px;
+            padding: 28px 0;
+
+            border-top: 1.2px dashed #7a7a82;
+            border-bottom: 1.2px dashed #7a7a82;
+            user-select: none;
+            @include responsive_fitLow {
+                margin-top: 28px;
+            }
+        }
+
+        &__activity {
+            margin-right: 24px;
+            @include flexBox(hor);
+            padding: 8px;
+            border: 1.2px solid #7a7a82;
+
+            & > span {
+                & + span {
+                    margin-left: 24px;
+                }
+            }
+        }
+
+        &__number {
+            font-size: 2rem;
+            font-family: $font-lora;
+            max-width: 20px;
+            text-align: center;
+        }
+
+        &__icon {
+            cursor: pointer;
+        }
+
+        &__btn {
+            border: 0;
+            background-color: transparent;
+
+            &:hover {
+                color: $color-main;
+            }
+        }
+
+        &__policy {
+            @include flexBox(hor);
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            border: 1px solid $color-text;
+
+            .policy {
+                &-cover {
+                    font-family: $font-proMain;
+                    font-weight: 500;
+                    margin-left: 20px;
+                }
+
+                &-title {
+                    font-size: 1.7rem;
+                    text-transform: uppercase;
+                }
+
+                &-desc {
+                    font-size: 1.4rem;
+                    color: $color-text;
+                    margin-top: 4px;
+                }
+            }
+        }
+    }
+
+    &-desc {
+        margin-top: 80px;
+
+        &__heading {
+            font-size: 2.4rem;
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+
+            font-family: $font-lora;
+            border-bottom: 1px dashed #7a7a82;
+
+            @include responsive_fitLow {
+                font-size: 2.2rem;
+            }
+        }
+
+        &__text {
+            font-family: $font-proMain;
+            color: $color-text;
+        }
+    }
+
+    &-same {
+        margin-top: 90px;
+        padding-bottom: 80px;
+        position: relative;
+
+        &::after,
+        &::before {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            background-repeat: no-repeat;
+        }
+
+        &::before {
+            left: 0;
+            width: 12%;
+            padding-top: 20%;
+
+            transform: translateY(30%);
+            background-size: cover;
+            background-position: center;
+            background-image: url("/assets/image/about-1.webp");
+
+            @include responsive_bothTM {
+                z-index: -1;
+                width: 18%;
+                padding-top: 30%;
+                transform: translateY(75%);
+            }
+        }
+
+        &::after {
+            right: 0;
+            background-position: right;
+            width: 11%;
+            padding-top: 18%;
+            background-size: contain;
+            transform: translateY(50%);
+            background-image: url("/assets/image/about-2.webp");
+
+            @include responsive_bothTM {
+                padding-top: 25%;
+                width: 14%;
+                z-index: -1;
+                transform: translateY(75%);
+            }
+        }
+
+        &__heading {
+            font-family: $font-lora;
+            font-size: 3.6rem;
+
+            @include responsive_fitLow {
+                font-size: 3rem;
+            }
+
+            @include responsive_bothTM {
+                max-width: 70%;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            @include responsive_mobile {
+                max-width: 100%;
+            }
+        }
+
+        .dish-list {
+            width: 100%;
+        }
+    }
+}
